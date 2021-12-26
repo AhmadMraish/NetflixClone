@@ -9,7 +9,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./authContext/AuthContext";
 
 const App = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   // Remember react-router-dom v6  switch replaced with routes   :(
   // Remember react-router-dom v6 redirect replaced with Navigate
   return (
@@ -30,14 +30,25 @@ const App = () => {
           path="/login"
           element={!user ? <Login /> : <Navigate to="/" />}
         />
-
-        {user && (
-          <>
-            <Route exact path="/movies" element={<Home type="movie" />} />
-            <Route exact path="/series" element={<Home type="series" />} />
-            <Route exact path="/watch" element={<Watch />} />
-          </>
-        )}
+        <>
+          <Route
+            exact
+            path="/movies"
+            element={user ? <Home type="movie" /> : <Navigate to="/register" />}
+          />
+          <Route
+            exact
+            path="/series"
+            element={
+              user ? <Home type="series" /> : <Navigate to="/register" />
+            }
+          />
+          <Route
+            exact
+            path="/watch"
+            element={user ? <Watch /> : <Navigate to="/register" />}
+          />
+        </>
       </Routes>
     </Router>
   );
