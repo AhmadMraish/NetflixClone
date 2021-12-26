@@ -25,7 +25,11 @@ export default function Watch() {
           Home
         </div>
       </Link>
-      <video className="video" autoPlay="true" loop="true" progress controls src={movie} />
+      <video className="video" autoPlay={true} progress="true" controls={true} src={movie} />
     </div>
   );
 }
+
+/*
+<video className="video" muted={true} progress="true" controls={true} src={content.trailer} />
+*/

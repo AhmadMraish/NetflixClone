@@ -12,6 +12,7 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
+       
         const res = await axios.get(
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
@@ -22,11 +23,17 @@ const Home = ({ type }) => {
                 "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzY0MWRiODBmNTM0YmZiYmU1MTk5NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDQ1NTE4NiwiZXhwIjoxNjQwODg3MTg2fQ.8If0R-MQUmpY61XrhSLUUrr5b9XhK16u-rMpi2xRqQ8",
             },
           }
+          
         );
+        if(!res){
+          return null
+        }
         setLists(res.data);
       } catch (err) {
+        
         console.log(err);
       }
+      
     };
     getRandomLists();
   }, [type, genre]);
