@@ -1,14 +1,15 @@
 import "./app.scss";
-import React from "react";
+import React, { useContext } from "react";
 import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthContext } from "./authContext/AuthContext";
 
 const App = () => {
-  const user = true;
+  const {user} = useContext(AuthContext)
   // Remember react-router-dom v6  switch replaced with routes   :(
   // Remember react-router-dom v6 redirect replaced with Navigate
   return (
@@ -32,7 +33,7 @@ const App = () => {
 
         {user && (
           <>
-            <Route exact path="/movies" element={<Home type="movies" />} />
+            <Route exact path="/movies" element={<Home type="movie" />} />
             <Route exact path="/series" element={<Home type="series" />} />
             <Route exact path="/watch" element={<Watch />} />
           </>

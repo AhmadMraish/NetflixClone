@@ -29,27 +29,7 @@ export default function ListItem({ index, item }) {
     };
     getMovie();
   }, [item]);
-  /*
-Pass props via Link component in React Router v6 by a separate prop called state like <Link to="/" state={{ foo: bar }}>.
-Example:
 
-   <Link
-      to={`/login`}
-      state={{ from: "the-page-id" }}
-   >
-      Login to see this page
-   </Link>
-
-And retrieve it using useLocation() hook:
-
-import { useLocation } from "react-router-dom";
-
-  const location = useLocation();
-  const {{ from }} = location.state;
-  console.log(from); // output: "the-page-id"
-
-This should be used with function components only not class components.
-*/
   return (
     <Link to={`/watch`} state={{ from: movie }}>
       <div
@@ -83,3 +63,34 @@ This should be used with function components only not class components.
     </Link>
   );
 }
+
+/*
+{
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzY0MWRiODBmNTM0YmZiYmU1MTk5NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDQ1NTE4NiwiZXhwIjoxNjQwODg3MTg2fQ.8If0R-MQUmpY61XrhSLUUrr5b9XhK16u-rMpi2xRqQ8",
+          },
+        }
+
+<Link to={`/watch`} state={{ from: movie }}>
+
+Pass props via Link component in React Router v6 by a separate prop called state like <Link to="/" state={{ foo: bar }}>.
+Example:
+
+   <Link
+      to={`/login`}
+      state={{ from: "the-page-id" }}
+   >
+      Login to see this page
+   </Link>
+
+And retrieve it using useLocation() hook:
+
+import { useLocation } from "react-router-dom";
+
+  const location = useLocation();
+  const {{ from }} = location.state;
+  console.log(from); // output: "the-page-id"
+
+This should be used with function components only not class components.
+*/
