@@ -22,6 +22,7 @@
       }
 
       .loginButton {
+        position: relative;
         background-color: red;
         border: none;
         color: white;
@@ -29,7 +30,8 @@
         padding: 5px 15px;
         font-size: 16px;
         font-weight: 500;
-        cursor: pointer;
+        cursor:pointer;
+        z-index: 999;
       }
     }
   }

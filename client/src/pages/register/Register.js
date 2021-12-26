@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./register.scss";
+import { Link } from "react-router-dom";
 /*
 reminder
 In react-router-dom v6 useHistory() is replaced by useNavigate()
@@ -31,7 +32,7 @@ export default function Register() {
     try {
       await axios.post("auth/register", { email,username, password });
       navigate("/login");
-    } catch (err) {}
+    } catch (err) {console.log(err)}
   };
   return (
     <div className="register">
@@ -42,7 +43,9 @@ export default function Register() {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
+          <Link to="/login">
           <button className="loginButton">Sign In</button>
+          </Link>
         </div>
       </div>
       <div className="container">
