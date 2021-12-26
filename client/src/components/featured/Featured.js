@@ -53,7 +53,7 @@ export default function Featured({ type, setGenre }) {
       )}
       <img src={content.img} alt="" />
       <div className="info">
-        <img src={content.imgTitle} alt="" />
+      <video className="video" muted={true} progress="true" controls={true} src={content.trailer} />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
