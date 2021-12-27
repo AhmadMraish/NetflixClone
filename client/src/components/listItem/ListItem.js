@@ -8,10 +8,20 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Iframe from 'react-iframe'
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
+
+  const addMovie = async (movie) => {
+    console.log("meme", movie._id);
+    try {
+      console.log("test");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     const getMovie = async () => {
@@ -22,51 +32,48 @@ export default function ListItem({ index, item }) {
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzY0MWRiODBmNTM0YmZiYmU1MTk5NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDQ1NTE4NiwiZXhwIjoxNjQwODg3MTg2fQ.8If0R-MQUmpY61XrhSLUUrr5b9XhK16u-rMpi2xRqQ8",
           },
         });
-        // if (!res || res == null || res === null) {
-        //   return;
-        // }
         setMovie(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     getMovie();
-    return () => {
-      setMovie(null);
-    };
+    // return () => {
+    //   setMovie(null);
+    // };
   }, [item]);
 
   return (
-    <Link to={`/watch`} state={{ from: movie }}>
-      <div
-        className="listItem"
-        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <img src={movie?.imgSm} alt="" />
-        {isHovered && (
-          <>
-            <video src={movie.trailer} autoPlay={true} loop />
-            <div className="itemInfo">
-              <div className="icons">
+    <div
+      className="listItem"
+      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <img src={movie.imgSm} alt="" />
+      {isHovered && (
+        <>
+          <video src={movie.trailer} autoPlay={true} loop />
+          <div className="itemInfo">
+            <div className="icons">
+              <Link to={`/watch`} state={{ from: movie }}>
                 <PlayArrow className="icon" />
-                <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
-              </div>
-              <div className="itemInfoTop">
-                <span>{movie.duration}</span>
-                <span className="limit">+{movie.limit}</span>
-                <span>{movie.year}</span>
-              </div>
-              <div className="desc">{movie.desc}</div>
-              <div className="genre">{movie.genre}</div>
+              </Link>
+              <Add onClick={() => addMovie(movie)} className="icon" />
+              <ThumbUpAltOutlined className="icon" />
+              <ThumbDownOutlined className="icon" />
             </div>
-          </>
-        )}
-      </div>
-    </Link>
+            <div className="itemInfoTop">
+              <span>{movie.duration}</span>
+              <span className="limit">+{movie.limit}</span>
+              <span>{movie.year}</span>
+            </div>
+            <div className="desc">{movie.desc}</div>
+            <div className="genre">{movie.genre}</div>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

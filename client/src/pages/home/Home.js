@@ -10,7 +10,6 @@ const Home = ({ type }) => {
   const [genre, setGenre] = useState(null);
 
   useEffect(() => {
-    let isMounted = true;
     const getRandomLists = async () => {
       try {
         const res = await axios.get(
@@ -24,18 +23,14 @@ const Home = ({ type }) => {
             },
           }
         );
-        // if (!res || res == null || res === null) {
-        //   return;
-        // }
+       
         setLists(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     getRandomLists();
-    return () => {
-      isMounted = false;
-    };
+  
   }, [type, genre]);
 
   return (
