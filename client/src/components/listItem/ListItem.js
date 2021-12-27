@@ -23,7 +23,7 @@ export default function ListItem({ index, item }) {
     try {
       const res = await axios.post(
         `/users/addmovietofavourite`,
-        { favMovie,userId },
+        { favMovie, userId },
         {
           headers: {
             token:
@@ -67,6 +67,15 @@ export default function ListItem({ index, item }) {
       <img src={movie.imgSm} alt="" />
       {isHovered && (
         <>
+          {/* <iframe className="video"
+            // width="560"
+            // height="315"
+            src="https://www.youtube.com/embed/q_KD-ILAYwM"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullscreen
+          ></iframe> */}
           <video src={movie.trailer} autoPlay={true} loop />
           <div className="itemInfo">
             <div className="icons">
