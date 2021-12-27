@@ -12,7 +12,7 @@ export default function Featured({ type, setGenre }) {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzY0MWRiODBmNTM0YmZiYmU1MTk5NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDQ1NTE4NiwiZXhwIjoxNjQwODg3MTg2fQ.8If0R-MQUmpY61XrhSLUUrr5b9XhK16u-rMpi2xRqQ8",
+            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -53,7 +53,13 @@ export default function Featured({ type, setGenre }) {
       )}
       <img src={content.img} alt="" />
       <div className="info">
-      <video className="video" muted={true} progress="true" controls={true} src={content.trailer} />
+        <video
+          className="video"
+          muted={true}
+          progress="true"
+          controls={true}
+          src={content.trailer}
+        />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
@@ -69,7 +75,6 @@ export default function Featured({ type, setGenre }) {
     </div>
   );
 }
-
 
 /**
  {

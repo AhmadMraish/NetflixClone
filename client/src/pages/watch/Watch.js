@@ -15,7 +15,7 @@ export default function Watch() {
   const location = useLocation();
   
   // this.props.location.state
-   console.log("loca",location)
+  //  console.log("loca",location)
   const movie = location.state.from.video
   return (
     <div className="watch">

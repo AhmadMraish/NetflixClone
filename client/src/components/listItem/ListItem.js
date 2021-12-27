@@ -8,19 +8,30 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Iframe from 'react-iframe'
+import Iframe from "react-iframe";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
 
   const addMovie = async (movie) => {
-    console.log("meme", movie._id);
+    // console.log("meme", movie._id);
     let favMovie = movie._id;
-    // need to send user id or recieve it via token
+    let userId = JSON.parse(localStorage.getItem("user"))._id;
+    // console.log("test test test", userId);
+    // need to send user id
     try {
-      const res = await axios.post(`/users/addmovietofavourite`,{favMovie})
-      console.log("test",res);
+      const res = await axios.post(
+        `/users/addmovietofavourite`,
+        { favMovie,userId },
+        {
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        }
+      );
+      console.log("test", res);
     } catch (err) {
       console.log(err);
     }
@@ -32,7 +43,7 @@ export default function ListItem({ index, item }) {
         const res = await axios.get("/movies/find/" + item, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzY0MWRiODBmNTM0YmZiYmU1MTk5NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDQ1NTE4NiwiZXhwIjoxNjQwODg3MTg2fQ.8If0R-MQUmpY61XrhSLUUrr5b9XhK16u-rMpi2xRqQ8",
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setMovie(res.data);

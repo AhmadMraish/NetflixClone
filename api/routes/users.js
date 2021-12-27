@@ -116,12 +116,13 @@ router.get("/stats", async (req, res) => {
 // };
 
 router.post("/addmovietofavourite", async (req, res) => {
-  // console.log("Mraish 2022", req)
-  // console.log("Mraish 2", req.body)
-  // console.log("Mraish 2020", req.token)
+  // console.log("ouou", res)
+  //  console.log("Mraish 2", req.body)
+   
   const newMovie = req.body.favMovie;
-  console.log("new",req.body.favMovie)
-  const currentUser = "61c97cb82a8b8a245caa9560"
+  // console.log("new",req.body.favMovie)
+  const currentUser = req.body.userId
+  // console.log("User",req.body.userId)
   User.findById(currentUser).then((result) => {
     if (result) {
       User.updateOne(
