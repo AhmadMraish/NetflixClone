@@ -16,8 +16,11 @@ export default function ListItem({ index, item }) {
 
   const addMovie = async (movie) => {
     console.log("meme", movie._id);
+    let favMovie = movie._id;
+    // need to send user id or recieve it via token
     try {
-      console.log("test");
+      const res = await axios.post(`/users/addmovietofavourite`,{favMovie})
+      console.log("test",res);
     } catch (err) {
       console.log(err);
     }

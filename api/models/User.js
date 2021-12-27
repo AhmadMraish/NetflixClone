@@ -5,6 +5,7 @@ const UserSchema = new mongoose.Schema(
   email: { type: String, required: true, unique: true },
   password: { type: String, rquired: true },
   profilePic: { type: String, default: "" },
+  favourite:[{type:mongoose.Schema.Types.ObjectId,ref:"Movie"}],default:[{}],
   isAdmin: { type: Boolean, default: false },
 },
  {timestamps:true}
