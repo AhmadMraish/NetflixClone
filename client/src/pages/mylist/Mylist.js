@@ -4,21 +4,21 @@ import "./mylist.scss";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   PlayArrow,
   Add,
   ThumbUpAltOutlined,
   ThumbDownOutlined,
-  DeleteOutline
+  DeleteOutline,
 } from "@material-ui/icons";
 
-
 const Mylist = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  let user = JSON.parse(localStorage.getItem("user"));
-  let index = 5;
+  let [bobo, setBobo] = useState({})
+  let moviearray = JSON.parse(localStorage.getItem("user")).default;
+
   return (
     <div className="mylist">
       <Navbar />
@@ -27,21 +27,22 @@ const Mylist = () => {
       </div>
 
       <div className="middlecontainer">
-        <Card className="cardcontainer">
-          <Card.Img className="cardimg" variant="top" src="https://i.imgur.com/P58p0cD.jpg" />
-          <Card.Body className="cardbody">
-            <Card.Title className="cardtitle">Card Title</Card.Title>
-            <Card.Text className="cardtext">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <div className="cardicons">
-            <PlayArrow/>
-            <DeleteOutline/>
-            </div>
-            
-          </Card.Body>
-        </Card>
+        {moviearray &&
+          moviearray.map((movie, i) => (
+            <Card key={i} className="cardcontainer">
+              <Card.Img className="cardimg" variant="top" src={movie.vidImg} />
+              <Card.Body className="cardbody">
+                <Card.Title className="cardtitle">{movie.videTitle}</Card.Title>
+                <Card.Text className="cardtext">{movie.vidDesc}</Card.Text>
+                <div className="cardicons">
+                  
+                  <PlayArrow/>
+                  
+                  <DeleteOutline />
+                </div>
+              </Card.Body>
+            </Card>
+          ))}
       </div>
     </div>
   );

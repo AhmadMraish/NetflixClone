@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User");
+const Movie = require("../models/Movie");
+const List = require("../models/List");
 const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
 //UPDATE
@@ -91,7 +93,6 @@ router.get("/stats", async (req, res) => {
   }
 });
 
-
 // const blabla = (req, res) => {
 //   // console.log("request",req,"request")
 //   const _id = req.params.id;
@@ -116,22 +117,81 @@ router.get("/stats", async (req, res) => {
 // };
 
 router.post("/addmovietofavourite", async (req, res) => {
-  // console.log("ouou", res)
-  //  console.log("Mraish 2", req.body)
-   
-  const newMovie = req.body.favMovie;
-  // console.log("new",req.body.favMovie)
-  const currentUser = req.body.userId
-  // console.log("User",req.body.userId)
+  let newMovie = req.body.favMovie;
+  console.log("newMovie", newMovie);
+
+  let movieImg = req.body.movieImg;
+  console.log("movieImg", movieImg);
+
+  let movieDesc = req.body.movieDesc;
+  console.log("movieDesc", movieDesc);
+
+  let movieTrailer = req.body.movieTrailer;
+  console.log("movieTrailer", movieTrailer);
+
+  let movieVideo = req.body.movieVideo;
+  console.log("movieVideo", movieVideo);
+
+  let movieTitle = req.body.movieTitle;
+  console.log("movieTitle", movieTitle);
+
+  let newFavVideo = {
+    vidID: newMovie,
+    vidImg: movieImg,
+    vidDesc: movieDesc,
+    vidTrailer: movieTrailer,
+    vidVideo: movieVideo,
+    videTitle:movieTitle
+  };
+  // movieTitle
+
+  console.log("enter", newFavVideo);
+
+  const currentUser = req.body.userId;
+
   User.findById(currentUser).then((result) => {
-    if (result) {
+    result &&
       User.updateOne(
         { _id: currentUser },
-        { $push: { favourite: newMovie } }
+        { $push: { default: newFavVideo } }
       ).exec();
-      res.status(200).json("fav video added");
-    }
+    res.status(200).json("added sccesfully");
   });
 });
+// try {
+//   let data = Movie.findOne({ newMovie }).populate("title");
+//   console.log("hoho", data);
+//   res.status(200).json({ success: true });
+//   // console.log("bebe",res)
+// } catch (err) {
+//   console.log(err);
+//   res.status(500).json({ success: false, msg: err.message });
+// }
+
+// ({
+//   path: 'user',
+//   select:
+//     'title desc img trailer video limit genre isSeries',
+// })
+
+// .populate({
+//   path: "Movie",
+//   populate: [
+//     { path: "title" },
+//     { path: "desc" },
+//     { path: "img" },
+//     { path: "trailer" },
+//     { path: "video" },
+//     { path: "limit" },
+//     { path: "genre" },
+//     { path: "isSeries" },
+//   ],
+// })
+// .populate("User")
+// .exec()
+// .then((result) => {
+//   console.log("test populate", result);
+// });
+// .populate([{path:"title",model:"Movie"},populate{path:"desc",model:"Movie"}])
 
 module.exports = router;

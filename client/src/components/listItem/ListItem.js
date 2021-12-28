@@ -15,15 +15,28 @@ export default function ListItem({ index, item }) {
   const [movie, setMovie] = useState({});
 
   const addMovie = async (movie) => {
-    // console.log("meme", movie._id);
     let favMovie = movie._id;
+    let movieTitle = movie.title;
+    let movieImg = movie.img;
+    let movieDesc = movie.desc;
+    let movieTrailer = movie.trailer;
+    let movieVideo = movie.video;
+
     let userId = JSON.parse(localStorage.getItem("user"))._id;
     // console.log("test test test", userId);
     // need to send user id
     try {
       const res = await axios.post(
         `/users/addmovietofavourite`,
-        { favMovie, userId },
+        {
+          favMovie,
+          userId,
+          movieTitle,
+          movieImg,
+          movieDesc,
+          movieTrailer,
+          movieVideo,
+        },
         {
           headers: {
             token:
@@ -52,9 +65,6 @@ export default function ListItem({ index, item }) {
       }
     };
     getMovie();
-    // return () => {
-    //   setMovie(null);
-    // };
   }, [item]);
 
   return (
