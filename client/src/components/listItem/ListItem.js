@@ -74,7 +74,7 @@ export default function ListItem({ index, item }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <img src={movie.imgSm} alt="" />
+      <img src={movie.img} alt="" />
       {isHovered && (
         <>
           {/* <iframe className="video"
@@ -86,6 +86,7 @@ export default function ListItem({ index, item }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullscreen
           ></iframe> */}
+          
           <video src={movie.trailer} autoPlay={true} loop />
           <div className="itemInfo">
             <div className="icons">

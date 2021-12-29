@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/navbar/Navbar";
+import Navbarlist from "../../components/navbarlist/Navbarlist";
 import "./mylist.scss";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
@@ -21,7 +21,7 @@ const Mylist = () => {
 
   return (
     <div className="mylist">
-      <Navbar />
+      <Navbarlist />
       <div className="outtercontainer">
         <span>My List</span>
       </div>

@@ -49,6 +49,9 @@
     }
 
     .desc {
+      background-color:var(--main-color) ;
+      background-size: auto;
+      
       margin: 20px 0px;
 
       @include mobile {
