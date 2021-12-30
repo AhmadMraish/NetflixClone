@@ -1,0 +1,157 @@
+body {
+  background-color: rgb(243, 243, 243);
+}
+.usersettings {
+  position: relative;
+
+  .backgroundsettings {
+    position: relative;
+  }
+  .usersettingcontainer {
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    a {
+      color: #0073e6;
+      text-decoration: none;
+      margin-bottom: 5px;
+      margin-right: 5px;
+      font-size: 1em;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    position: absolute;
+    top: 120px;
+    left: 400px;
+    right: 400px;
+    background-color: rgb(243, 243, 243);
+    height: auto;
+
+    .accountreginfo {
+      color: rgb(51, 51, 51);
+      margin-left: 5px;
+      margin-top: 5px;
+      // margin-right: 20px;
+      font-size: 1.5em;
+      .dateinfo {
+        color: #000;
+        font-size: 13px;
+        margin-left: 35px;
+      }
+    }
+
+    .mainmembershipcontainer {
+      display: flex;
+
+      .membershipleft {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 5px;
+        .membershiptex {
+          color: #757575;
+        }
+        .cancelmembership {
+          border: none;
+          box-shadow: #757575;
+          background-color: #e6e6e6;
+          width: 50%;
+          justify-content: center;
+          align-items: center;
+          height: 45px;
+          font-weight: 400;
+          margin-top: 5px;
+          cursor: pointer;
+        }
+        .cancelmembership:hover {
+          background-color: #eaeaea;
+        }
+      }
+      .membershipmiddle {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .email {
+          margin-bottom: 5px;
+        }
+        .password {
+          margin-bottom: 5px;
+          color: #757575;
+        }
+        .phone {
+          color: #757575;
+        }
+      }
+    }
+    .membershipright {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      //   border: solid blue 1px;
+      text-align: right;
+      margin-right: 5px;
+    }
+  }
+
+  .test {
+    display: flex;
+
+    .test1 {
+      flex: 1;
+    }
+    .test2 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .test3 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+    }
+  }
+  .promogift {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    color: #0073e6;
+  }
+  .plandetails {
+    display: flex;
+    flex-direction: row;
+    // justify-content:space-around;
+    margin: 0px 5px 0px;
+    .plandetailstext {
+      flex: 1;
+    }
+    .plandetailsimg {
+      flex: 1;
+    }
+    .plandetailschangeplan {
+      flex: 1;
+      text-align: right;
+    }
+  }
+  .settingsofprofile {
+    display: flex;
+
+    .settingsofprofilename {
+      flex: 1;
+      margin-left: 5px;
+    }
+    .settingsofprofilenamelinks {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    .settingsempty {
+      flex: 1;
+    }
+  }
+}

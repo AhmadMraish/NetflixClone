@@ -5,6 +5,7 @@ import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import Mylist from "./pages/mylist/Mylist";
+import Usersettings from "./pages/usersettings/Usersettings";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./authContext/AuthContext";
@@ -54,6 +55,12 @@ const App = () => {
             path="/mylist"
             element={user ? <Mylist /> : <Navigate to="/register" />}
           />
+          <Route
+            exact
+            path="/settings"
+            element={user ? <Usersettings /> : <Navigate to="/register" />}
+          />
+
         </>
       </Routes>
     </Router>

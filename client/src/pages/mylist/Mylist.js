@@ -16,7 +16,6 @@ import {
 } from "@material-ui/icons";
 
 const Mylist = () => {
-  let [bobo, setBobo] = useState({})
   let moviearray = JSON.parse(localStorage.getItem("user")).default;
 
   return (
