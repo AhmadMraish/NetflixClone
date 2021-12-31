@@ -154,4 +154,74 @@ body {
       flex: 1;
     }
   }
+
+  .profileparentalcontrol {
+    // height: fit-content;
+    // width: fit-content;
+    display: flex;
+
+    .profileparentalcontrolheader {
+      flex: 1;
+
+      width: 270px;
+      left: 0;
+      padding-right: 10px;
+      font-size: 15px;
+
+      .profileparentalcontroltext {
+        color: #757575;
+      }
+    }
+    .profileparentalcontrolsection {
+      flex: 2;
+
+      .mainprofiles {
+        list-style-type: none;
+      }
+
+      .single-profile {
+        // display: flex;
+        // flex-direction: row ;
+        .profile-header {
+          display: flex;
+          .profile-inner-image {
+            border-radius: 4px;
+            width: 60px;
+            height: 60px;
+            // padding-top: 5px;
+            // padding-bottom: 5px;
+            // padding-right: 5px;
+            // padding-left: 5px;
+          }
+          .profile-summary {
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
+
+            .amr {
+              color: #757575;
+            }
+          }
+          .profile-button {
+            width: 100px;
+            background-color: none; 
+            border: none;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 5px;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
 }
