@@ -1,7 +1,7 @@
 .mylist {
  background-color: var(--main-color);
-  // overflow: hidden;
-  height: 100%;
+   overflow: hidden;
+  height: fit-content;
   position: relative;
 
   .outtercontainer {
@@ -17,11 +17,11 @@
   }
 
   .middlecontainer {
-    //   z-index: 999;
     display: flex;
     flex-flow: wrap;
     justify-content: space-evenly;
     top: 300px;
+   margin-bottom: 350px;
     // left: 25px;
     position: relative;
     background-color: var(--main-color);

@@ -20,6 +20,7 @@ const Mylist = () => {
   let moviearray = JSON.parse(localStorage.getItem("user")).default;
 
   return (
+    <>
     <div className="mylist">
       <Navbarlist />
       <div className="outtercontainer">
@@ -44,8 +45,9 @@ const Mylist = () => {
             </Card>
           ))}
       </div>
-      <Footer/>
     </div>
+      <Footer/>
+      </>
   );
 };
 
