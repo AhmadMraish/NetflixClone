@@ -1,5 +1,6 @@
 import React from "react";
 import Navbarlist from "../../components/navbarlist/Navbarlist";
+import Footer from "../../components/footer/Footer";
 import "./mylist.scss";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
@@ -43,6 +44,7 @@ const Mylist = () => {
             </Card>
           ))}
       </div>
+      <Footer/>
     </div>
   );
 };

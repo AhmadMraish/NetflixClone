@@ -1,9 +1,11 @@
 import React from "react";
 import Navbar from "../../components/navbar/Navbar";
 import "./usersettings.scss";
+import Footer from "../../components/footer/Footer";
 
 const Usersettings = () => {
   return (
+      <>
     <div className="usersettings">
       <Navbar />
       <div className="backgroundsettings">
@@ -115,7 +117,7 @@ const Usersettings = () => {
                   <div className="profile-header">
                     <img className="profile-inner-image"  src="https://scontent.famm11-1.fna.fbcdn.net/v/t31.18172-8/11357284_10155710469880525_7164636631488032966_o.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=6MFWiBJNpOEAX9tt8kW&tn=0PHH23xpLMPr26f7&_nc_ht=scontent.famm11-1.fna&oh=00_AT9qeM474Ltc3rGX6AP5v9EM8n_dFTlCMkVe6r0SbfB49Q&oe=61F09CB5"></img>
                         <div className="profile-summary">
-                            <h3>Banana</h3>
+                            <h3>Ahmad</h3>
                             <div className="amr">All Maturity Ratings</div>
                         </div>
                         <button className="profile-button">+</button>
@@ -127,6 +129,8 @@ const Usersettings = () => {
         </div>
       </div>
     </div>
+      <Footer/>
+    </>
   );
 };
 

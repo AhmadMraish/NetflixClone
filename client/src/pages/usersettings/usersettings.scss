@@ -3,6 +3,7 @@ body {
 }
 .usersettings {
   position: relative;
+  height: 100vh;
 
   .backgroundsettings {
     position: relative;
@@ -209,7 +210,7 @@ body {
           }
           .profile-button {
             width: 100px;
-            background-color: none; 
+            background-color: none;
             border: none;
             height: 45px;
             align-items: center;

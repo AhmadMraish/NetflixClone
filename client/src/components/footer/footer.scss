@@ -1,0 +1,19 @@
+.footercontainer{
+    position: relative  ;
+    width: auto;
+    height: 200px;
+    z-index: 999;
+    overflow: hidden;
+    h3{
+        margin-left: 100px;
+        margin-top:25px;    
+        margin-bottom: 30px;
+    }
+    .footercontent{
+        margin-left: 100px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+        grid-gap: 20px;
+        cursor: pointer;
+    }
+}

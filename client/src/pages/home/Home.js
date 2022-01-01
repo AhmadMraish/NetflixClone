@@ -4,7 +4,7 @@ import "./home.scss";
 import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import Footer from "../../components/footer/Footer";
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
@@ -40,6 +40,7 @@ const Home = ({ type }) => {
       {lists.map((list, i) => (
         <List key={i} list={list} />
       ))}
+      <Footer/>
     </div>
   );
 };
