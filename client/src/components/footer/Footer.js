@@ -4,7 +4,7 @@ import "./footer.scss"
 const Footer = () => {
     return (
         <div className='footercontainer'>
-            <hr></hr>
+            
             <h3>Questions? Contact us.</h3>
             <div className='footercontent'>
                 <span>Audio and Subtitles</span>

@@ -74,7 +74,9 @@ const Navbarlist = () => {
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">
+            <Link to="/settings" className="link">
               <span>Settings</span>
+              </Link>
               <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>
